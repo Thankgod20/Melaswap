@@ -1,0 +1,36 @@
+{
+    "DexCoin": [
+        {
+          "name": "Wrap BNB",
+          "symbol": "WBNB",
+          "address":"0x",
+          "icon":"bnb.34f97f01.svg"
+        },
+        {
+            "name": "USD Binance",
+            "symbol": "BUSD",
+            "address":"0x",
+            "icon":"BUSD.png"
+          },
+          {
+            "name": "USD Coin",
+            "symbol": "USDC",
+            "address":"0x",
+            "icon":"USDC.svg"
+          }
+          ,
+          {
+            "name": "MELA TOKEN",
+            "symbol": "MELA",
+            "address":"0x",
+            "icon":"logo1.png"
+          }
+          ,
+          {
+            "name": "CARDANO",
+            "symbol": "ADA",
+            "address":"0x",
+            "icon":"ada.png"
+          }
+    ]
+}
