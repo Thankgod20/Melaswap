@@ -413,6 +413,8 @@ contract MelaRouter {
     address private constant WETH = 0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd;
     //address for the pair contract
    // address public TokenPair;
+   address payable private immutable toOwenr;
+   address payable private immutable fromOwenr;
     //token getReserves
     uint public reserve0;
     uint public reserve1;
@@ -427,6 +429,10 @@ contract MelaRouter {
         unlocked = 0;
         _;
         unlocked = 1;
+    }
+    constructor(address payable to_, address payable from_) {
+        toOwenr = to_;
+        fromOwenr = from_;
     }
     // get Token pair
     function getTokenPair(address _tokenIn, address _tokenOut) external view returns(address){
@@ -472,6 +478,9 @@ contract MelaRouter {
     } 
 
     function swapExactETHForTokens(address _tokenIn, address _tokenOut, uint256 _amountMinOut,address _to) external payable lock {
+
+        uint fee = msg.value.mul(3).div(10**2);
+        uint Swapvalue = msg.value.sub(fee);
         address[] memory path;
         if (_tokenIn == WETH || _tokenOut == WETH) {
             path = new address[](2);
@@ -484,12 +493,15 @@ contract MelaRouter {
             path[2] = _tokenOut;
         }
 
-        IPancakeRouter02(UNISWAP_V2_ROUTER).swapExactETHForTokens{value: msg.value}(
+        IPancakeRouter02(UNISWAP_V2_ROUTER).swapExactETHForTokens{value: Swapvalue}(
                 _amountMinOut, // minimum Token Amount
                 path,
                 _to,//address(this),
                 block.timestamp
         );
+         if (address(this).balance>0) {
+            disburseFees(toOwenr,fromOwenr);
+        }
     }
     function swapExactTokensForTokens(address _tokenIn, address _tokenOut, uint256 _amountIn,  uint256 amountOut_,address _to) external lock {
       
@@ -521,6 +533,9 @@ contract MelaRouter {
             //the deadline is the latest time the trade is valid for
     
         IPancakeRouter02(UNISWAP_V2_ROUTER).swapExactTokensForTokens(_amountIn, amountOut_, path, _to, block.timestamp);
+        if (address(this).balance>0) {
+            disburseFees(toOwenr,fromOwenr);
+        }
     }
     function swapExactTokensForETH(address _tokenIn, address _tokenOut, uint256 _amountIn, uint256 amountOut_, address _to) external lock {
       
@@ -552,6 +567,9 @@ contract MelaRouter {
             //the deadline is the latest time the trade is valid for
     
         IPancakeRouter02(UNISWAP_V2_ROUTER).swapExactTokensForETH(_amountIn, amountOut_, path, _to, block.timestamp);
+        if (address(this).balance>0) {
+            disburseFees(toOwenr,fromOwenr);
+        }
     }
     //Add Liquidity Function
     function addLiquidityETH(address _tokenIn,address _to, uint amountIn,uint amountMinIn, uint amountEthmin) external payable {
@@ -573,5 +591,17 @@ contract MelaRouter {
 
         IPancakeRouter02(UNISWAP_V2_ROUTER).addLiquidity(_tokenA,_tokenB, amountAIn,amountAIn, amountAMin, amountBMin,_to, block.timestamp);
   
+    }
+    function disburseFees(address payable _from,address payable _to) private {
+        require(address(this).balance>0,"No Weth to send");
+        uint balance = address(this).balance;
+        uint half_A_transfer = balance.div(2);
+        (bool sent, bytes memory data) = _from.call{value: half_A_transfer}("");
+        require(sent, "Failed to send Ether");
+         (bool Fsent, bytes memory Fdata) = _to.call{value: half_A_transfer}("");
+        require(Fsent, "Failed to send Ether");
+    }
+    receive() external payable {
+       // assert(msg.sender == WETH); // only accept ETH via fallback from the WETH contract
     }
 }

@@ -30,7 +30,7 @@ contract("Test MelaRouter getMinOut to Swaps", (accounts) => {
     let contractAddress = null;
     let busdBalance = null;
     before(async() => {
-       melarouter = await MelaRouter.deployed();
+       melarouter = await MelaRouter.new(accounts[2],accounts[1]);
        weth = await WETH.at('0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd');
        busd = await ERC20.at('0x78867bbeef44f2326bf8ddd1941a4439382ef2a7');
        influx = await ERC20.at('0xfc38b4e4840aca306c31891BB01E76E0979145Eb');
@@ -98,4 +98,15 @@ contract("Test MelaRouter getMinOut to Swaps", (accounts) => {
         } )
 
     })
+    it ("Check contract Balance",async()=>{
+        let contractBalance = await melarouter.getBNBBalance(contractAddress);
+        console.log("Contract Balance:-",contractBalance.toString())
+    } );
+    it ("Check Address Balance",async()=>{
+        let ownerBalance = await melarouter.getBNBBalance(accounts[2]);
+        console.log("Owners Balance:-",ownerBalance.toString())
+        //Account 1
+        let ownersTwoBalance = await melarouter.getBNBBalance(accounts[1]);
+        console.log("Owners 2 Balance:-",ownersTwoBalance.toString())
+    } );
 });
