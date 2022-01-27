@@ -1,0 +1,29 @@
+{
+  "name": "swap",
+  "version": "1.0.0",
+  "description": "This project focused on how to make a dex easier by using an already existing dex",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thankgod20/Melaswap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "web3": "^1.2.1",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"},
+  "bugs": {
+    "url": "https://github.com/Thankgod20/Melaswap/issues"
+  },
+  "homepage": "https://github.com/Thankgod20/Melaswap#readme"
+}

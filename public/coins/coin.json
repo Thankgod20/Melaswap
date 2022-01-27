@@ -1,21 +1,27 @@
 {
     "DexCoin": [
+      {
+        "name": "BNB",
+        "symbol": "BNB",
+        "address":"0xae13d989dac2f0debff460ac112a837c89baa7cd",
+        "icon":"logo.svg"
+      },
         {
           "name": "Wrap BNB",
           "symbol": "WBNB",
-          "address":"0x",
+          "address":"0xae13d989dac2f0debff460ac112a837c89baa7cd",
           "icon":"bnb.34f97f01.svg"
         },
         {
             "name": "USD Binance",
             "symbol": "BUSD",
-            "address":"0x",
+            "address":"0x78867bbeef44f2326bf8ddd1941a4439382ef2a7",
             "icon":"BUSD.png"
           },
           {
             "name": "USD Coin",
             "symbol": "USDC",
-            "address":"0x",
+            "address":"0x7ef95a0fee0dd31b22626fa2e10ee6a223f8a684",
             "icon":"USDC.svg"
           }
           ,

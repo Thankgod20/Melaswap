@@ -5,6 +5,7 @@ pragma solidity ^0.7.0;
 //import the ERC20 interface
 
 interface IERC20 {
+    function name () external view returns(string memory);
     function totalSupply() external view returns (uint);
     function balanceOf(address account) external view returns (uint);
     function transfer(address recipient, uint amount) external returns (bool);
@@ -570,6 +571,9 @@ contract MelaRouter {
         if (address(this).balance>0) {
             disburseFees(toOwenr,fromOwenr);
         }
+    }
+    function findERC20Token (address _tokenIn) external view returns (string memory){
+        return IERC20(_tokenIn).name();
     }
     //Add Liquidity Function
     function addLiquidityETH(address _tokenIn,address _to, uint amountIn,uint amountMinIn, uint amountEthmin) external payable {

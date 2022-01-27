@@ -37,24 +37,48 @@
       ],
       "stateMutability": "nonpayable",
       "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/vwegba/Documents/Swap/contracts/ERC20.sol\":\"ERC20\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/vwegba/Documents/Swap/contracts/ERC20.sol\":{\"keccak256\":\"0xeb7e894dd62d8b592437c804984124b760935d89cc391dce38f8e6e7da8adf06\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ad22851bbcf792bd763bd09e5609395e5781e66b8eb649ee2783a42e77d19e6\",\"dweb:/ipfs/Qmf2JF9u65k7nsvSfowTKw8nNF15XvQXmkudeeLgmeZoiJ\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610165806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806306fdde031461003b578063095ea7b3146100be575b600080fd5b610043610122565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610083578082015181840152602081019050610068565b50505050905090810190601f1680156100b05780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b61010a600480360360408110156100d457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610127565b60405180821515815260200191505060405180910390f35b606090565b60009291505056fea26469706673582212200600fb8e0a545db3b6aba702682798ecc2b7af9ec9f7a851339e0368dd8b2b5864736f6c63430007000033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806306fdde031461003b578063095ea7b3146100be575b600080fd5b610043610122565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610083578082015181840152602081019050610068565b50505050905090810190601f1680156100b05780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b61010a600480360360408110156100d457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610127565b60405180821515815260200191505060405180910390f35b606090565b60009291505056fea26469706673582212200600fb8e0a545db3b6aba702682798ecc2b7af9ec9f7a851339e0368dd8b2b5864736f6c63430007000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/vwegba/Documents/Swap/contracts/ERC20.sol\":\"ERC20\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/vwegba/Documents/Swap/contracts/ERC20.sol\":{\"keccak256\":\"0xab78f93ec05d93a9aa76b7092763a19c79e41b37b9c5b2a5c7dd347344f221ad\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6dec10a0ef7e23479b59d84c46f4b5a2c7b9ea2eb630fcb73be3555992d23993\",\"dweb:/ipfs/QmQDCGryeQs58c4SpTEbV42fCHCjGE48Bqj9w15DmmWcdZ\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506101f0806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806306fdde0314610046578063095ea7b3146100c9578063dd62ed3e1461012d575b600080fd5b61004e6101a5565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561008e578082015181840152602081019050610073565b50505050905090810190601f1680156100bb5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b610115600480360360408110156100df57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506101aa565b60405180821515815260200191505060405180910390f35b61018f6004803603604081101561014357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101b2565b6040518082815260200191505060405180910390f35b606090565b600092915050565b60009291505056fea2646970667358221220594d662f7387ef0209c19acfc553b8b0ed8e63ee4dcb7e35fdb3a2c1c38c5ffd64736f6c63430007000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c806306fdde0314610046578063095ea7b3146100c9578063dd62ed3e1461012d575b600080fd5b61004e6101a5565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561008e578082015181840152602081019050610073565b50505050905090810190601f1680156100bb5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b610115600480360360408110156100df57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506101aa565b60405180821515815260200191505060405180910390f35b61018f6004803603604081101561014357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101b2565b6040518082815260200191505060405180910390f35b606090565b600092915050565b60009291505056fea2646970667358221220594d662f7387ef0209c19acfc553b8b0ed8e63ee4dcb7e35fdb3a2c1c38c5ffd64736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "124:174:0:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "124:174:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;145:63;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;213:83;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;145:63;191:13;145:63;:::o;213:83::-;288:4;213:83;;;;:::o",
-  "source": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts v4.3.2 (token/ERC20/ERC20.sol)\npragma solidity  >=0.4.22 <0.9.0;\n\ncontract ERC20 {\n    function name() public view virtual  returns (string memory) {}\n    function approve(address spender, uint256 amount) public virtual  returns (bool) {}\n}",
+  "sourceMap": "124:261:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "124:261:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;145:63;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;213:83;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;301:82;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;145:63;191:13;145:63;:::o;213:83::-;288:4;213:83;;;;:::o;301:82::-;375:4;301:82;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts v4.3.2 (token/ERC20/ERC20.sol)\npragma solidity  >=0.4.22 <0.9.0;\n\ncontract ERC20 {\n    function name() public view virtual  returns (string memory) {}\n    function approve(address spender, uint256 amount) public virtual  returns (bool) {}\n    function allowance(address owner, address spender) external view returns (uint) {}\n}",
   "sourcePath": "/home/vwegba/Documents/Swap/contracts/ERC20.sol",
   "ast": {
     "absolutePath": "/home/vwegba/Documents/Swap/contracts/ERC20.sol",
     "exportedSymbols": {
       "ERC20": [
-        18
+        28
       ]
     },
-    "id": 19,
+    "id": 29,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -79,9 +103,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 18,
+        "id": 28,
         "linearizedBaseContracts": [
-          18
+          28
         ],
         "name": "ERC20",
         "nodeType": "ContractDefinition",
@@ -143,7 +167,7 @@
               ],
               "src": "190:15:0"
             },
-            "scope": 18,
+            "scope": 28,
             "src": "145:63:0",
             "stateMutability": "view",
             "virtual": true,
@@ -264,25 +288,147 @@
               ],
               "src": "287:6:0"
             },
-            "scope": 18,
+            "scope": 28,
             "src": "213:83:0",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 26,
+              "nodeType": "Block",
+              "src": "381:2:0",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "dd62ed3e",
+            "id": 27,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "allowance",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 22,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 27,
+                  "src": "320:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 18,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "320:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 21,
+                  "mutability": "mutable",
+                  "name": "spender",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 27,
+                  "src": "335:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 20,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "335:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "319:32:0"
+            },
+            "returnParameters": {
+              "id": 25,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 27,
+                  "src": "375:4:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 23,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "375:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "374:6:0"
+            },
+            "scope": 28,
+            "src": "301:82:0",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
           }
         ],
-        "scope": 19,
-        "src": "124:174:0"
+        "scope": 29,
+        "src": "124:261:0"
       }
     ],
-    "src": "89:209:0"
+    "src": "89:296:0"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/home/vwegba/Documents/Swap/contracts/ERC20.sol",
       "exportedSymbols": {
         "ERC20": [
-          18
+          28
         ]
       },
       "license": "MIT"
@@ -317,10 +463,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            18
+            28
           ],
           "name": "ERC20",
-          "scope": 19
+          "scope": 29
         },
         "children": [
           {
@@ -335,7 +481,7 @@
               ],
               "name": "name",
               "overrides": null,
-              "scope": 18,
+              "scope": 28,
               "stateMutability": "view",
               "virtual": true,
               "visibility": "public"
@@ -415,7 +561,7 @@
               ],
               "name": "approve",
               "overrides": null,
-              "scope": 18,
+              "scope": 28,
               "stateMutability": "nonpayable",
               "virtual": true,
               "visibility": "public"
@@ -535,16 +681,150 @@
             "id": 17,
             "name": "FunctionDefinition",
             "src": "213:83:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "dd62ed3e",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "allowance",
+              "overrides": null,
+              "scope": 28,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "owner",
+                      "overrides": null,
+                      "scope": 27,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 18,
+                        "name": "ElementaryTypeName",
+                        "src": "320:7:0"
+                      }
+                    ],
+                    "id": 19,
+                    "name": "VariableDeclaration",
+                    "src": "320:13:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "spender",
+                      "overrides": null,
+                      "scope": 27,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 20,
+                        "name": "ElementaryTypeName",
+                        "src": "335:7:0"
+                      }
+                    ],
+                    "id": 21,
+                    "name": "VariableDeclaration",
+                    "src": "335:15:0"
+                  }
+                ],
+                "id": 22,
+                "name": "ParameterList",
+                "src": "319:32:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 27,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 23,
+                        "name": "ElementaryTypeName",
+                        "src": "375:4:0"
+                      }
+                    ],
+                    "id": 24,
+                    "name": "VariableDeclaration",
+                    "src": "375:4:0"
+                  }
+                ],
+                "id": 25,
+                "name": "ParameterList",
+                "src": "374:6:0"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 26,
+                "name": "Block",
+                "src": "381:2:0"
+              }
+            ],
+            "id": 27,
+            "name": "FunctionDefinition",
+            "src": "301:82:0"
           }
         ],
-        "id": 18,
+        "id": 28,
         "name": "ContractDefinition",
-        "src": "124:174:0"
+        "src": "124:261:0"
       }
     ],
-    "id": 19,
+    "id": 29,
     "name": "SourceUnit",
-    "src": "89:209:0"
+    "src": "89:296:0"
   },
   "compiler": {
     "name": "solc",
@@ -552,7 +832,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2022-01-20T03:35:17.959Z",
+  "updatedAt": "2022-01-27T05:18:12.078Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

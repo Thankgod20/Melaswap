@@ -278,6 +278,7 @@ body{
 .Estimate-d{
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
     color: rgb(135, 141, 150);
     font-size: 0.875rem;

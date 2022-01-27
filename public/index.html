@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Mela Swap</title>
     <script src="./js/jquery.js"></script>
+    <script src="main.build.js"></script>
 </head>
 <body>
     
@@ -109,15 +110,17 @@
             <div class="Form-div-main swapToken">
                 <div class="Head-for-estimate">
                     <div class="aasfsfs">
-                        <div class="Estimate-d"><div class="sc-cSHVUG sc-chPdSV sc-kgoBCf fRQaiR"><div class="sc-VigVT ekfDkL css-tjft48">From</div></div></div>
+                        <div class="Estimate-d">
+                            <div class="sc-cSHVUG sc-chPdSV sc-kgoBCf fRQaiR"><div class="sc-VigVT ekfDkL css-tjft48">From</div></div>
+                            <div id="BalanceTokenOne" class="sc-cSHVUG sc-chPdSV sc-kgoBCf fRQaiR BalanceTokenOne"></div>
+                    </div>
                     </div>
                 </div>
                 <div class="lihOlP">
                     <button class="open-currency">
                         <span class="s-jHUAll">
-                            <div class="s-VJcYb">
-                                <img src="logo.svg" class="BNB-pics">
-                                <span class="token-symbol-container">BNB</span>
+                            <div class="s-VJcYb from-d-VzRt">
+                                
                             </div>
                             <svg width="12" height="7" class="down-arrow">
                                 <path d="M0.97168 1L6.20532 6L11.439 1"></path>
@@ -142,14 +145,17 @@
             <div class="Form-div-main">
                 <div class="Head-for-estimate">
                     <div class="aasfsfs">
-                        <div class="Estimate-d"><div class="sc-cSHVUG sc-chPdSV sc-kgoBCf fRQaiR"><div class="sc-VigVT ekfDkL css-tjft48">To (estimated)</div></div></div>
+                        <div class="Estimate-d">
+                            <div class="sc-cSHVUG sc-chPdSV sc-kgoBCf fRQaiR"><div class="sc-VigVT ekfDkL css-tjft48">To (estimated)</div></div>
+                            <div id="BalanceTokenTwo" class="sc-cSHVUG sc-chPdSV sc-kgoBCf fRQaiR BalanceTokenTwo"></div>
+                    </div>
                     </div>
                 </div>
                 <div class="lihOlP">
                     <button class="open-currency">
                         <span class="s-jHUAll">
-                            <div class="s-VJcYb">
-                                <span class="token-symbol-container">Select a token</span>
+                            <div class="s-VJcYb to-d-VzRt">
+                                
                             </div>
                             <svg width="12" height="7" class="down-arrow">
                                 <path d="M0.97168 1L6.20532 6L11.439 1"></path>
@@ -158,7 +164,7 @@
                     </button>
 
                     <div class="type-amount">
-                        <input class=" type-- token-amount-input" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
+                        <input class=" type-- token-amount-output" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
                     </div>
                 </div>
 
@@ -167,7 +173,9 @@
                 </div>
             </div>
 
-          
+            <div style="margin-top: 24px; display: none;" class="approve-btn">
+                <button class="Long-Button">Approve</button></div>
+        </div>
             <div style="margin-top: 24px;">
                 <button class="Long-Button">Connect Wallet</button></div>
         </div>
@@ -191,7 +199,7 @@
                     </button>
 
                     <div class="type-amount">
-                        <input class=" type-- token-amount-input" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
+                        <input class=" type-- token-amount-input-one" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
                     </div>
                 </div>
 
@@ -223,7 +231,7 @@
                     </button>
 
                     <div class="type-amount">
-                        <input class=" type-- token-amount-input" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
+                        <input class=" type-- token-amount-input-two" inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off" type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79" spellcheck="false" value="">
                     </div>
                 </div>
 
@@ -263,56 +271,7 @@
        </div>
     </div>
     
-<script>
-$(document).ready(function() {
-    
-    $.getJSON('./coins/coin.json', function(data) {
-        var output = '';
-        $.each(data.DexCoin, function(key, value) {
-            output += '<li class ="coin-names"> <img class ="coin-icons" src ="./coin-icons/'+value.icon+'"/><span class="coin-name">' + value.name + '</span></li>';
-        });
-        $('.coins').html(output); 
-    });
-    $('.searchToken').bind('input', function() { 
-        var numberOfSearch = 0;
-        var findValue = $(this).val();
-        $.getJSON('./coins/coin.json', function(data) {
-        var output = '';
-        $.each(data.DexCoin, function(key, value) {
-            var cname = String(value.name);
-            
-            if (cname.indexOf(findValue)>= 0) {
-                numberOfSearch += 1;
-                output += '<li class ="coin-names"> <img class ="coin-icons" src ="./coin-icons/'+value.icon+'"/><span class="coin-name">' + value.name + '</span></li>';
-            }
-        });
-            $('.coins').html(output); 
-        });
-
-
-    });
-    $('.bk').click(function() {
-        $('.dialog-box').fadeOut();
-    })
-    $('.open-currency').click(function() {
-        $('.dialog-box').fadeIn();
-    });
-    $('.Swapp').click(function() {
-        $('.pool').removeClass('active');
-        $(this).addClass('active');
-        $(".addLiquidity").fadeOut(function() {
-            $(".swapToken").fadeIn()
-        })
-    })
-    $('.pool').click(function() {
-        $('.Swapp').removeClass('active');
-        $(this).addClass('active');
-        $(".swapToken").fadeOut(function() {
-            $(".addLiquidity").fadeIn()
-        })
-    })
-});
-</script>
+<script src="./swap.js"></script>
     
 </body>
 </html>
