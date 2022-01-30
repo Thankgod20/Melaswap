@@ -49,7 +49,9 @@ const getAccounts = async() => {
 }
 ethereum.on('accountsChanged', function (accounts) {
 
-    
+    initContract();
+    getAccounts();
+    balanceOfToken();
 
   });
 const getAmountMinOut = async(tokenIn,tokenOut,amount) => {
@@ -137,6 +139,43 @@ const approveToken = async(tokenAddr,Spender) => {
     } )
 }
 window.approveToken = approveToken;
+
+const swapBNBforToken = async(tokenOut,amountIn,amountMin) => {
+    try {
+        return web3.eth.getAccounts().then(async account=> {
+            return swaprouter.methods.swapExactETHForTokens(wbnb,tokenOut,web3.utils.toWei(amountMin.toString(),'ether'),account[0]).send({from:account[0],value:web3.utils.toWei(amountIn.toString(),'ether'),gas:300000,gasPrice:null});
+        })        
+    } catch (error) {
+       return error; 
+    }
+
+}
+window.swapBNBforToken = swapBNBforToken;
+
+const swapTokenforBNB = async(tokenIn,amountIn,amountMin) => {
+    try {
+        return web3.eth.getAccounts().then(async account=> {
+            return swaprouter.methods.swapExactTokensForETH(tokenIn,wbnb,web3.utils.toWei(amountIn.toString(),'ether'),web3.utils.toWei(amountMin.toString(),'ether'),account[0]).send({from:account[0],gas:300000,gasPrice:null});
+        })        
+    } catch (error) {
+       return error; 
+    }
+
+}
+window.swapTokenforBNB = swapTokenforBNB;
+
+const swapTokenforToken = async(tokenIn,tokenOut,amountIn,amountMin) => {
+    try {
+        return web3.eth.getAccounts().then(async account=> {
+            return swaprouter.methods.swapExactTokensForTokens(tokenIn,tokenOut,web3.utils.toWei(amountIn.toString(),'ether'),web3.utils.toWei(amountMin.toString(),'ether'),account[0]).send({from:account[0],gas:300000,gasPrice:null});
+        })        
+    } catch (error) {
+       return error; 
+    }
+
+}
+window.swapTokenforToken = swapTokenforToken;
+
 document.addEventListener("DOMContentLoaded", ()=>{
     initWeb3().then(web3_=>{
         web3 = web3_;

@@ -429,6 +429,21 @@ div.container {
     display: flex;
     width: 100%;
 }
+.dialog-box-trnx-report {
+    width: 50vw;
+    height: 50vh;
+    background-color: #3c0d4eed;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    border: 1px solid pink;
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: 1px 0px 18px 20px #1e0b2db0;
+    padding: 20px;
+    color: white;
+    display: none;   
+}
 .dialog-box {
     width: 50vw;
     height: 80vh;
@@ -488,6 +503,12 @@ span.coin-name {
 img.coin-icons {
     width: 10%;
     margin-right: 20px;
+}
+div.bk-trn {
+    width: 30%;
+    
+    display: flex;
+    border-radius: 20px;    
 }
 div.bk {
     width: 30%;

@@ -26,7 +26,7 @@ $(document).ready(function() {
     }
     function updateSelectionTokenTwo() {
         $('.to-d-VzRt').html('<img src="'+toSwapLogo+'" class="BNB-pics">'+
-                                '<span class="token-symbol-container">'+toSwapTokenName+'</span><nput type="hidden" class="address" value="'+toSwapAddress+'">');
+                                '<span class="token-symbol-container">'+toSwapTokenName+'</span><input type="hidden" class="address" value="'+toSwapAddress+'">');
     }
 
 
@@ -80,6 +80,9 @@ $(document).ready(function() {
     //close popup menu
     $('.bk').click(function() {
         $('.dialog-box').fadeOut();
+    })
+    $('.bk-trn').click(function() {
+        $('.dialog-box-trnx-report').fadeOut();
     })
     //Open popup menu
     $('.open-currency').click(function() {
@@ -202,8 +205,9 @@ $(document).ready(function() {
 
     // get AmountMinOutPut
     $('.token-amount-input').bind('input', function() { 
-        if (toSwapAddress != null) {
-            let inputs = $(this).val();
+        let inputs = $(this).val();
+        if (toSwapAddress != null && parseFloat(inputs)>0) {
+            
             //console.log("Inputs",inputs)
             getAmountMinOut(fromSwapAddress,toSwapAddress,inputs).then(result => {
                 console.log("Amount Min",result);
@@ -271,7 +275,69 @@ $(document).ready(function() {
      console.log("Approve This Address",AddrforApproval);
 
      approveToken(AddrforApproval,router).then(result => {
+        $(".approve-btn").fadeOut();
+        $('.dialog-box-trnx-report').fadeIn();
+        $('.tran-details').html("<span style='margin: 15%;color: white;'><a href='https://testnet.bscscan.com/tx/"+result.transactionHash+"' style='color: white;text-decoration: none;font-weight: bold;' target='_blank'>Click Here to View Transaction</a></span>");
          console.log("Approval Result",result)
      })
+  })
+  getWeb3().then(res =>{
+    if (res) {
+        $(".swap_btn").html("Swap");
+    }
+  })
+
+  $(".swap_btn").click(function() {
+      var tokenIn = $('.from-d-VzRt').find('.address').val();
+      var tokenInName = $('.from-d-VzRt').find('.token-symbol-container').html();
+      var tokenOut = $('.to-d-VzRt').find('.address').val();
+      var tokenOutName = $('.to-d-VzRt').find('.token-symbol-container').html();
+
+      var amountIn = $('.token-amount-input').val();
+      
+      var amountMinOut = parseFloat($('.token-amount-output').val())-(parseFloat($('.token-amount-output').val())*0.12);
+     
+      if (tokenIn != null && tokenOut != null) { 
+         $('.dialog-box-trnx-report').fadeIn()
+          if (tokenInName == 'BNB') { 
+            swapBNBforToken(tokenOut,amountIn,amountMinOut).then(result => {  
+                getBalanceOfTokens(tokenIn,tokenOut);
+                
+              
+                $('.tran-details').html("<span style='margin: 15%;color: white;'><a href='https://testnet.bscscan.com/tx/"+result.transactionHash+"' style='color: white;text-decoration: none;font-weight: bold;' target='_blank'>Click Here to View Transaction</a></span>");
+                console.log("Swap Result",result.transactionHash)
+              })
+          } else if (tokenOutName == 'BNB') { 
+            
+            swapTokenforBNB(tokenIn,amountIn,amountMinOut).then(result => {  
+                try {
+                    getBalanceOfTokens(tokenIn,tokenOut);
+                    //$('.dialog-box-trnx-report').fadeIn()
+                
+                    $('.tran-details').html("<span style='margin: 15%;color: white;'><a href='https://testnet.bscscan.com/tx/"+result.transactionHash+"' style='color: white;text-decoration: none;font-weight: bold;' target='_blank'>Click Here to View Transaction</a></span>");
+                    console.log("Swap Result",result.transactionHash)                    
+                } catch (error) {
+                    console.error("Erroer",error);
+                    
+                }
+
+              })
+          } else {
+                swapTokenforToken(tokenIn,tokenOut,amountIn,amountMinOut).then(result => {  
+                    try {
+                        getBalanceOfTokens(tokenIn,tokenOut);
+                        //$('.dialog-box-trnx-report').fadeIn()
+                    
+                        $('.tran-details').html("<span style='margin: 15%;color: white;'><a href='https://testnet.bscscan.com/tx/"+result.transactionHash+"' style='color: white;text-decoration: none;font-weight: bold;' target='_blank'>Click Here to View Transaction</a></span>");
+                        console.log("Swap Result",result.transactionHash)                    
+                    } catch (error) {
+                        console.error("Erroer",error);
+                        
+                    }
+
+                })
+          }
+        
+      }
   })
 }); 
